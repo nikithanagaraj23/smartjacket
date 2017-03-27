@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+td{
+width:200px;
+height:150px;
+}
+.bs-example{
+    	margin: 20px;
+    }
+	
+.priority{
+	 opacity:0.01;
+    z-index:100;
+}
+</style>
+
+<meta charset="utf-8">
+<title>smartJacket</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+
+<!--<link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
+        rel="stylesheet">-->
+		
+<link href="css/font-awesome.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/pages/dashboard.css" rel="stylesheet">
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body style="font-family:cursive;">
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
+                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a>
+					<a class="brand" href="Main.html">SmartJacket</a>
+      <div class="nav-collapse">
+     <!--
+        <form class="navbar-search pull-right">
+          <input type="text" class="search-query" placeholder="Search">
+        </form>-->
+      </div>
+      <!--/.nav-collapse --> 
+    </div>
+    <!-- /container --> 
+  </div>
+  <!-- /navbar-inner --> 
+</div>
+<!-- /navbar -->
+<div class="subnavbar">
+  <div class="subnavbar-inner">
+   
+    <!-- /container --> 
+  </div>
+  <!-- /subnavbar-inner --> 
+</div>
+<!-- /subnavbar -->
+<div class="main">
+  <div class="main-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span6">
+          
+          <!-- /widget -->
+          <div class="widget widget-nopad">
+            <div class="widget-header"> <i class="icon-list-alt"></i>
+              <h3> Recent News</h3>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+              <div id='calendar'>
+			  
+              </div>
+            </div>
+            <!-- /widget-content --> 
+          </div>
+          <!-- /widget -->
+          <!-- /widget --> 
+        </div>
+        <!-- /span6 -->
+        <div class="span6">
+          
+          <!-- /widget -->
+          <div class="widget" style="display:none">
+            
+            <!-- /widget-header -->
+            <div class="widget-content">
+              <canvas id="area-chart" class="chart-holder" height="250" width="538" style="display:none"> </canvas>
+              <!-- /area-chart --> 
+            </div>
+            <!-- /widget-content --> 
+          </div>
+          <!-- /widget -->
+         
+          <!-- /widget --> 
+          <div class="widget widget-nopad">
+           
+            
+            <!-- /widget-content --> 
+          </div>
+          <!-- /widget -->
+        </div>
+			  
+			  <div style="padding-left:950px;padding-top:150px;">
+			  <button style="width:25px;height:25px;" type="button" class="btn btn-danger"></button>&nbsp; High Priority<br>
+			  <button style="width:25px;height:25px;margin-top:10px;"type="button" class="btn btn-warning"></button> &nbsp; Medium Priority<br>
+			  <button style="width:25px;height:25px;margin-top:10px;" type="button" class="btn btn-success"></button> &nbsp; Low Priority
+			  <br>
+			  <!--
+			  <input style="margin-top:30px;" type="datetime-local" name="bdaytime">
+			  <br>-->
+			  
+			  <br>
+				<button onclick="populateDB()" style="width:100px;height:30px;" type="button" class="btn btn-danger" >SUBMIT</button>&nbsp;<br>
+			<br>	<button onclick="clearCal()" style="width:100px;height:30px;" type="button" class="btn btn-danger" >RESET</button>&nbsp;<br>
+
+			  </div>
+        <!-- /span6 --> 
+      </div>
+
+      <!-- /row --> 
+    </div>
+    <!-- /container --> 
+  </div>
+  <!-- /main-inner --> 
+  
+</div>
+<!-- /main -->
+			  
+<div class="extra">
+  <div class="extra-inner">
+    <div class="container">
+      <div class="row">
+                    <div class="span3">
+                        <h4>
+                            </h4>
+                        <ul>
+                            <li><a href="javascript:;"></a></li>
+                            <li><a href="javascript:;"></a></li>
+                            <li><a href="javascript:;"></a></li>
+                            <li><a href="javascript:;"></a></li>
+                        </ul>
+                    </div>
+                    <!-- /span3 -->
+                    <div class="span3">
+                        <h4>
+                            </h4>
+                        <ul>
+                            <li><a href="javascript:;"></a></li>
+                            <li><a href="javascript:;"></a></li>
+                            <li><a href="javascript:;"></a></li>
+                            <li><a href="javascript:;"></a></li>
+                        </ul>
+                    </div>
+                    <!-- /span3 -->
+                    <div class="span3">
+                        <h4>
+                            </h4>
+                        <ul>
+                            <li><a href="javascript:;"></a></li>
+                            <li><a href="javascript:;"></a></li>
+                            <li><a href="javascript:;"></a></li>
+                        </ul>
+                    </div>
+                    <!-- /span3 -->
+                    <div class="span3">
+                        <h4>
+                          </h4>
+                        <ul>
+                            <li><a href="http://www.egrappler.com"></a></li>
+                            <li><a href="http://www.egrappler.com;"></a></li>
+                            <li><a href="http://www.egrappler.com;"></a></li>
+                            <li><a href="http://www.egrappler.com;"></a></li>
+                        </ul>
+                    </div>
+                    <!-- /span3 -->
+                </div>
+      <!-- /row --> 
+    </div>
+    <!-- /container --> 
+  </div>
+  <!-- /extra-inner --> 
+</div>
+<!-- /extra -->
+
+<div class="bs-example">
+    <!-- Button HTML (to Trigger Modal) -->
+    
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Event Entry</h4>
+                </div>
+				<input style="margin-left:30px;margin-top:15px;" id="event_name" type="text" placeholder="Enter the EventName"></input>
+                
+				<div class="modal-body">
+                    <p>Difficulty level of the event entered?</p>
+                    <div>
+					<div  id="red"style="width:10px;height:15px;" type="button" class="btn btn-danger"><input onclick="javascript:alert('Set Highest Priority');" class="priority" type="radio" id="radio1" name="priority" value="1"/></div>&nbsp;			  
+					<div id="yellow" style="width:10px;height:15px;"type="button" class="btn btn-warning"><input onclick="javascript:alert('Set medium Priority');" class="priority" type="radio" id="radio2" name="priority" value="2"/></div> &nbsp; 
+					<div id="green" style="width:10px;height:15px;" type="button" class="btn btn-success"><input onclick="javascript:alert('Set least Priority');" class="priority" type="radio" id="radio3" name="priority" value="3"/></div> &nbsp;
+					</div>
+					
+                </div>
+                <div class="modal-footer">
+                    <button id='b1' type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id='b2' type="button" class="btn" data-dismiss="modal">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+  <div class="footer-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span12"></a></div>
+        <!-- /span12 --> 
+      </div>
+      <!-- /row --> 
+    </div>
+    <!-- /container --> 
+  </div>
+  <!-- /footer-inner --> 
+</div>
+
+<!-- /footer --> 
+<!-- Le javascript
+================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script src="js/jquery-1.7.2.min.js"></script> 
+<script src="js/excanvas.min.js"></script> 
+<script src="js/chart.min.js" type="text/javascript"></script> 
+<script src="js/bootstrap.js"></script>
+<script language="javascript" type="text/javascript" src="js/full-calendar/fullcalendar.min.js"></script>
+ 
+<script src="js/base.js"></script> 
+<script>     
+
+        var lineChartData = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [
+				{
+				    fillColor: "rgba(220,220,220,0.5)",
+				    strokeColor: "rgba(220,220,220,1)",
+				    pointColor: "rgba(220,220,220,1)",
+				    pointStrokeColor: "#fff",
+				    data: [65, 59, 90, 81, 56, 55, 40]
+				},
+				{
+				    fillColor: "rgba(151,187,205,0.5)",
+				    strokeColor: "rgba(151,187,205,1)",
+				    pointColor: "rgba(151,187,205,1)",
+				    pointStrokeColor: "#fff",
+				    data: [28, 48, 40, 19, 96, 27, 100]
+				}
+			]
+
+        }
+
+        var myLine = new Chart(document.getElementById("area-chart").getContext("2d")).Line(lineChartData);
+
+
+        var barChartData = {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [
+				{
+				    fillColor: "rgba(220,220,220,0.5)",
+				    strokeColor: "rgba(220,220,220,1)",
+				    data: [65, 59, 90, 81, 56, 55, 40]
+				},
+				{
+				    fillColor: "rgba(151,187,205,0.5)",
+				    strokeColor: "rgba(151,187,205,1)",
+				    data: [28, 48, 40, 19, 96, 27, 100]
+				}
+			]
+
+        }    
+
+        $(document).ready(function() {	//on load of document,get the values from local storage and put into calendar
+		
+      
+	   var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+	
+        var y = date.getFullYear();
+        var calendar = $('#calendar').fullCalendar(
+		{
+          header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+          },
+          selectable: true,
+          selectHelper: true,
+          select: function(start, end, allDay) {
+		var title;
+		var priority;
+
+
+			$("#myModal").modal('show');//creating modal window
+			//var priority;
+		
+			//var $dialog=$("#myModal").modal();//creating modal window
+		
+				//$dialog.on('click','btn btn-default',)
+			/*
+			$(this).on('click',function(e){
+			e.preventDefault();
+			
+			$dialog.modal('open');
+			});*/
+		$("#b2").on('click',function(e){
+			e.preventDefault();
+			title=document.getElementById("event_name").value;
+			//alert(title);
+			//var priority;
+			var radios = document.getElementsByName('priority');
+		
+			if (radios[0].checked) {
+		//	document.getElementById('red').style.border = '1px solid black';
+		//	alert("Set Highest Priority");
+			priority=1;
+			
+			}
+			else if (radios[1].checked) {
+		//	document.getElementById('yellow').style.border = '1px solid black';
+			//alert("Set Medium Priority");
+			priority=2;
+			}
+			else if (radios[2].checked) {
+		//	document.getElementById('green').style.border = '1px solid black';
+			//alert("Set least Priority");
+			priority=3;
+			}
+		/*
+           if (title) {
+              calendar.fullCalendar('renderEvent',
+                {
+                  title: title+"\n"+priority,
+                  start: start,
+                  end: end,
+                  allDay: allDay
+				 
+                },
+                true,true // make the event "stick"
+              );
+            }*/
+			
+			$("#myModal").on('hidden.bs.modal', function(){
+		//alert("Modal window has been completely closed.");
+		
+		$("#event_name").val('');
+				});
+
+		});
+		
+			setTimeout(function(){
+			//alert(title)
+
+           //var title = prompt('Event Title');
+          // var title = document.getElementById("event_name").value;
+		   
+		   /*var priority=prompt('Enter priority 1 , 2, 3');
+		   var priority=1;
+			*/
+            if (title) {
+              calendar.fullCalendar('renderEvent',
+                {
+                  title: title,// change this so that priority isnt seen in the calendar
+                  start: start,
+                  end: end,
+                  allDay: allDay
+				 
+                },
+                true,true,priority // make the event "stick"
+              );
+			  
+            }
+		},15000); 
+			calendar.fullCalendar('unselect');
+          },
+          editable: true,
+		  events:[]
+
+		});
+		
+      //var ev=JSON.parse(calendar);
+	//  alert(calendar);
+	//  alert()
+		
+	//	alert(objects[1]); 
+	objects = JSON.parse(localStorage.getItem("savedData"));
+	//localStorage.removeItem("savedData");
+	
+	if(objects != null )
+	{
+
+	for(var i=0;i<objects.length;i++)
+	{
+
+		var b=objects[i].split(":");
+		var event=b[0];
+		var event_date=b[2];
+		//$eventDate='2015-02-01';
+		
+		var eventPriority=b[1];
+		//alert(event_date);
+		
+		var obj=event_date.split(" ");
+		var day=obj[0];
+		var month=obj[1];
+		var date1=obj[2];
+		var year=obj[3];
+		
+		var mon;
+		switch (month) {
+		case 'Jan':
+		mon=1;
+			break;
+		case 'Feb':
+			mon=2;
+			break;
+		case 'Mar':
+			mon=3;
+			break;
+		case "Apr":
+			mon=4;
+			break;
+		case 'May':
+			mon=5;
+			break;
+		case 'Jun':
+			mon=6;
+			break;
+		case "Jul":
+			mon=7;
+			break;
+		case 'Aug':
+			mon=8;
+			break;
+		case 'Sep':
+			mon=9;
+			break;
+		case "Oct":
+			mon=10;
+			break;
+		case 'Nov':
+			mon=11;
+			break;
+		case 'Dec':
+			mon=12;
+			break;
+		}
+	
+	 calendar.fullCalendar('renderEvent',
+                {
+                 // title: event+"\n"+eventPriority,
+                  title: event,
+                  start: new Date(year,mon-1,date1),
+                 
+                },
+                true,false,eventPriority // make the event "stick"
+              );
+	}
+	
+	
+	
+	 }
+	
+	
+	}
+	  );
+	  
+	  
+	  
+    </script><!-- /Calendar -->
+</body>
+</html>

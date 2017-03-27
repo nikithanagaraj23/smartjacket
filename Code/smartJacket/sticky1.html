@@ -1,0 +1,101 @@
+<html>
+<head>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+	
+<link href="css/font-awesome.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/pages/dashboard.css" rel="stylesheet">
+  <script src="theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="theme/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+   <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>-->
+    <script src="theme/js/classie.js"></script>
+    <script src="theme/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="theme/js/jqBootstrapValidation.js"></script>
+    <script src="theme/js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="theme/js/agency.js"></script>
+
+<style>
+
+#stickynotes
+{
+width:200px;
+height:200px;
+box-shadow: 5px 5px 5px #888888;
+	
+}
+</style>
+
+</head>
+
+
+<body style="background-image:url('theme/img/bg2.jpg');background-position   : 50% 50%;background-size: cover;  "><!--
+<div style="background-image:url('theme/img/bg2.jpg');width:100%;height:100px;">   </div>         
+-->
+
+<h2 style="padding-left:40%;padding-top:20px;color:white;font-family:cursive">Suggestions/Remedies   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;         <a style="color:white;text-decoration:none;" href="Chart/smartJacket.html">View Your Stress Chart</a></h2>
+
+<div style="border-radius:25px;background: radial-gradient(#CCEDE5,white);margin-left:15%;margin-top:5%;width:1000px;height:800px;box-shadow: 5px 5px 5px 5px #888888;margin-bottom:100px;">
+
+<form method="POST" >
+Text to convert : <input name="txt" type="text" /><br />
+Convert text to speech : <input name="submit" type="submit" value="Convert" />
+</form>
+
+<?php
+if (isset($_POST['txt']) && isset($_POST['filename']))
+{
+	$text=htmlentities($_POST['txt']);
+	$filename=$_POST['filename'].'.ogg';
+	
+	$querystring = http_build_query(array(
+		"text" => $text
+	));
+	
+	//for wav file format use http://speechutil.com/convert/wav? below
+	if ($soundfile = file_get_contents("http://speechutil.com/convert/ogg?".$querystring))
+	{
+		file_put_contents($filename,$soundfile);
+		echo ('
+			<audio autoplay="autoplay" controls="controls">
+			<source src="'.$filename.'" type="audio/ogg" />
+			</audio>
+			<br />
+			Saved mp3 location : '.dirname(__FILE__).'\\'.$filename.'
+			<br />';
+			
+		);
+	}
+	else echo("<br />Audio could not be saved");
+}
+?>
+<!--
+	<div id="stickynotes" style="margin-top:5%;margin-left:9%;background-color:#FFFF00;transform: rotate(10deg);float:left">
+  
+	<i>sticky note</i>
+	</div>
+
+	
+
+	<div id="stickynotes" style=" margin-top:5%;margin-left:7%;background-color:#FF0000;transform: rotate(10deg);float:left" >
+  
+	</div>
+
+	
+
+	<div id="stickynotes" style="margin-left:7%;margin-top:10%;background-color:#0099FF;float:left;transform: rotate(-10deg);" >
+  
+	</div>
+
+	
+</div>
+-->
+</body>

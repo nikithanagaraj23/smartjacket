@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Line Chart</title>
+		<script src="../Chart.js"></script>
+	</head>
+	<body>
+	<button onclick="call()">click</button>
+
+		<div style="width:30%">
+			<div>	
+				<canvas id="canvas" height="450" width="600"></canvas>
+			</div>
+		</div>
+		
+
+	<script>
+		window.onload = function(){
+		xhr = new XMLHttpRequest();
+		
+		xhr.onreadystatechange = updateFields;
+		xhr.open("GET","server.php",true);
+		xhr.send();
+		
+		}
+
+function updateFields()
+{
+	if(xhr.readyState==4&&xhr.status==200)
+	{
+	alert(xhr.responseText);
+	
+	data1 = JSON.parse(xhr.responseText);
+	
+	//alert(data1[0]);
+	
+	}
+	
+	
+}
+
+function call()
+{
+var ctx = document.getElementById("canvas").getContext("2d");
+var lineChartData = {
+			//labels : ["2015-03-12","2015-03-14","2015-03-21"],
+			labels : data1[0],
+			datasets : [
+				{
+					label: "My First dataset",
+					fillColor : "rgba(220,220,220,0.2)",
+					strokeColor : "rgba(220,220,220,1)",
+					pointColor : "rgba(220,220,220,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(220,220,220,1)",
+					data : data1[1]
+				
+				}			]
+
+		}
+	
+
+	window.myLine = new Chart(ctx).Line(lineChartData, {
+	responsive: true
+		});
+		
+
+
+}
+
+	</script>
+	</body>
+</html>
